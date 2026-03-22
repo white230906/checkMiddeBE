@@ -1,6 +1,6 @@
-using TetPee.Repository.Abstraction;
+using TestRepo.Repository.Abstraction;
 
-namespace TetPee.Repository.Entity;
+namespace TestRepo.Repository.Entity;
 
 public class Seller: BaseEntity<Guid>, IAuditableEntity
 {

@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
-namespace TetPee.Repository.Migrations
+namespace TestRepo.Repository.Migrations
 {
     /// <inheritdoc />
     public partial class checkData : Migration

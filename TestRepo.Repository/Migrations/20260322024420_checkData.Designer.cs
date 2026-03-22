@@ -5,11 +5,11 @@ using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
-using TetPee.Repository;
+using TestRepo.Repository;
 
 #nullable disable
 
-namespace TetPee.Repository.Migrations
+namespace TestRepo.Repository.Migrations
 {
     [DbContext(typeof(AppDbContext))]
     [Migration("20260322024420_checkData")]
@@ -25,7 +25,7 @@ namespace TetPee.Repository.Migrations
 
             NpgsqlModelBuilderExtensions.UseIdentityByDefaultColumns(modelBuilder);
 
-            modelBuilder.Entity("TetPee.Repository.Entity.Category", b =>
+            modelBuilder.Entity("TestRepo.Repository.Entity.Category", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -54,7 +54,7 @@ namespace TetPee.Repository.Migrations
                     b.ToTable("Categories");
                 });
 
-            modelBuilder.Entity("TetPee.Repository.Entity.Product", b =>
+            modelBuilder.Entity("TestRepo.Repository.Entity.Product", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -86,7 +86,7 @@ namespace TetPee.Repository.Migrations
                     b.ToTable("Products");
                 });
 
-            modelBuilder.Entity("TetPee.Repository.Entity.Seller", b =>
+            modelBuilder.Entity("TestRepo.Repository.Entity.Seller", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -124,7 +124,7 @@ namespace TetPee.Repository.Migrations
                     b.ToTable("Sellers");
                 });
 
-            modelBuilder.Entity("TetPee.Repository.Entity.User", b =>
+            modelBuilder.Entity("TestRepo.Repository.Entity.User", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -156,18 +156,18 @@ namespace TetPee.Repository.Migrations
                     b.ToTable("Users");
                 });
 
-            modelBuilder.Entity("TetPee.Repository.Entity.Category", b =>
+            modelBuilder.Entity("TestRepo.Repository.Entity.Category", b =>
                 {
-                    b.HasOne("TetPee.Repository.Entity.Category", "Parent")
+                    b.HasOne("TestRepo.Repository.Entity.Category", "Parent")
                         .WithMany("Children")
                         .HasForeignKey("ParentId");
 
                     b.Navigation("Parent");
                 });
 
-            modelBuilder.Entity("TetPee.Repository.Entity.Product", b =>
+            modelBuilder.Entity("TestRepo.Repository.Entity.Product", b =>
                 {
-                    b.HasOne("TetPee.Repository.Entity.Seller", "Seller")
+                    b.HasOne("TestRepo.Repository.Entity.Seller", "Seller")
                         .WithMany("Products")
                         .HasForeignKey("SellerId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -176,28 +176,28 @@ namespace TetPee.Repository.Migrations
                     b.Navigation("Seller");
                 });
 
-            modelBuilder.Entity("TetPee.Repository.Entity.Seller", b =>
+            modelBuilder.Entity("TestRepo.Repository.Entity.Seller", b =>
                 {
-                    b.HasOne("TetPee.Repository.Entity.User", "User")
+                    b.HasOne("TestRepo.Repository.Entity.User", "User")
                         .WithOne("Seller")
-                        .HasForeignKey("TetPee.Repository.Entity.Seller", "UserId")
+                        .HasForeignKey("TestRepo.Repository.Entity.Seller", "UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.Navigation("User");
                 });
 
-            modelBuilder.Entity("TetPee.Repository.Entity.Category", b =>
+            modelBuilder.Entity("TestRepo.Repository.Entity.Category", b =>
                 {
                     b.Navigation("Children");
                 });
 
-            modelBuilder.Entity("TetPee.Repository.Entity.Seller", b =>
+            modelBuilder.Entity("TestRepo.Repository.Entity.Seller", b =>
                 {
                     b.Navigation("Products");
                 });
 
-            modelBuilder.Entity("TetPee.Repository.Entity.User", b =>
+            modelBuilder.Entity("TestRepo.Repository.Entity.User", b =>
                 {
                     b.Navigation("Seller");
                 });

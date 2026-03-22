@@ -1,6 +1,6 @@
 using System.Security.Claims;
 
-namespace TetPee.Service.JwtService;
+namespace TestRepo.Service.JwtService;
 
 public interface IService
 {

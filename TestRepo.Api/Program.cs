@@ -1,8 +1,10 @@
 using Microsoft.EntityFrameworkCore;
 using TestRepo.Api.Extensions;
 using TestRepo.Api.Middlewares;
-using TetPee.Repository;
-using JwtService = TetPee.Service.JwtService;
+using TestRepo.Repository;
+
+using CategoryService = TestRepo.Service.Category;
+using JwtService = TestRepo.Service.JwtService;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -22,6 +24,8 @@ builder.Services.AddDbContext<AppDbContext>(options =>
 builder.Services.AddJwtServices(builder.Configuration);
 builder.Services.AddSwaggerServices();
 
+
+builder.Services.AddScoped<CategoryService.IService, CategoryService.Service>();
 builder.Services.AddScoped<JwtService.IService, JwtService.Service>();
 
 builder.Services.AddTransient<GlobalExceptionHandlerMiddleware>();

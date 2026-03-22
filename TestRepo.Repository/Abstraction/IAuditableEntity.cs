@@ -1,4 +1,4 @@
-namespace TetPee.Repository.Abstraction;
+namespace TestRepo.Repository.Abstraction;
 
 public interface IAuditableEntity
 {

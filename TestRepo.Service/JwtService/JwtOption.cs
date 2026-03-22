@@ -1,6 +1,6 @@
 using System.ComponentModel.DataAnnotations;
 
-namespace TetPee.Service.JwtService;
+namespace TestRepo.Service.JwtService;
 
 public class JwtOptions
 {

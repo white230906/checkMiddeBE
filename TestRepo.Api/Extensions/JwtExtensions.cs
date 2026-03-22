@@ -2,7 +2,7 @@ using System.Security.Claims;
 using System.Text;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
-using TetPee.Service.JwtService;
+using TestRepo.Service.JwtService;
 
 namespace TestRepo.Api.Extensions;
 
