@@ -3,6 +3,7 @@ using TestRepo.Api.Extensions;
 using TestRepo.Api.Middlewares;
 using TestRepo.Repository;
 
+using UserService = TestRepo.Service.User;
 using CategoryService = TestRepo.Service.Category;
 using JwtService = TestRepo.Service.JwtService;
 
@@ -24,7 +25,7 @@ builder.Services.AddDbContext<AppDbContext>(options =>
 builder.Services.AddJwtServices(builder.Configuration);
 builder.Services.AddSwaggerServices();
 
-
+builder.Services.AddScoped<UserService.IService, UserService.Service>();
 builder.Services.AddScoped<CategoryService.IService, CategoryService.Service>();
 builder.Services.AddScoped<JwtService.IService, JwtService.Service>();
 
